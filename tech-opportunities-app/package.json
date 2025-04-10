@@ -1,0 +1,26 @@
+{
+  "name": "tech-opportunities-app",
+  "version": "1.0.0",
+  "description": "London Tech Internship Finder App",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build && cd ../server && npm run build",
+    "start": "cd server && npm start",
+    "scrape": "cd server && npm run scrape"
+  },
+  "keywords": [
+    "internship",
+    "tech",
+    "london",
+    "job",
+    "finder"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
