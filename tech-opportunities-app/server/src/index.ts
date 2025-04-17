@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cron from 'node-cron';
-import { createClient } from 'redis';
+import { createClient, RedisClientType } from 'redis';
 import jobRoutes from './routes/jobs';
 import { runScrapers } from './jobs/cron';
 import Job from './models/job';
@@ -45,7 +45,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/tech-inte
   });
 
 // Initialize Redis client with more robust error handling
-let redisClient = null;
+let redisClient: RedisClientType | null = null;
 try {
   redisClient = createClient({
     url: process.env.REDIS_URL || 'redis://localhost:6379'
